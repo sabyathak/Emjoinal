@@ -9,21 +9,39 @@
 import UIKit
 
 class ViewController: UIViewController {
+  
+let emojis = ["♈️":"Aries", "♊️" :"Pisces"]
 
+let customMessages = [ "Aries": ["cheer up buttercup", "take a deep breathe", "do you need to talk?"],"Pisces": ["cheer up buttercup", "take a deep breathe", "do you need to talk?" ]]
+ 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-
+ 
     @IBAction func showMessage(sender: UIButton) {
-        let alertController = UIAlertController(title : "title", message : "title", preferredStyle: UIAlertController.Style.alert)
+        let selectedEmotion = sender.titleLabel?.text
+       
+        let emojiMessage = emojis[selectedEmotion!]
+        
+        let alertController = UIAlertController(title : "Zodiac Signs", message : emojis[selectedEmotion!], preferredStyle: UIAlertController.Style.alert)
         
         alertController.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
         
         present(alertController, animated: true, completion: nil)
+       
         
-        
+    
         
     }
+  
+
 }
+
+
+
+
+
+
 
